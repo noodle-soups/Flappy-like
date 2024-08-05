@@ -1313,7 +1313,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 908795623}
         m_TargetAssemblyTypeName: LogicManager, Assembly-CSharp
-        m_MethodName: LoadGame
+        m_MethodName: LoadPlayAgain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

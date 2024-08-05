@@ -13,7 +13,7 @@ public class LogicManager : MonoBehaviour
     [Header("Player Score")]
     private int _playerScore;
     [SerializeField] private Text _scoreText;
-    //private AudioSource _scoreSFX;
+    private AudioSource _scoreSFX;
 
     [Header("Game Over")]
     [SerializeField] private GameObject _gameOverScreen;
@@ -24,7 +24,7 @@ public class LogicManager : MonoBehaviour
         // grab Bird script for _isBirdAlive state
         _bird = GameObject.FindGameObjectWithTag("Bird").GetComponent<Bird>();
         // grab "Audio Source"
-        //_scoreSFX = GetComponent<AudioSource>();
+        _scoreSFX = GetComponent<AudioSource>();
     }
 
     public void AddScore(int scoreToAdd)
@@ -35,7 +35,7 @@ public class LogicManager : MonoBehaviour
         {
             _playerScore += scoreToAdd;
             _scoreText.text = _playerScore.ToString();
-            //_scoreSFX.Play();
+            _scoreSFX.Play();
         }
     }
 
