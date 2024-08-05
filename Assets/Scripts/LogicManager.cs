@@ -7,22 +7,46 @@ using UnityEngine.UI;
 public class LogicManager : MonoBehaviour
 {
 
+    [Header("References")]
+    private Bird _bird;
+
     [Header("Player Score")]
-    public int _playerScore;
-    public Text _scoreText;
+    private int _playerScore;
+    [SerializeField] private Text _scoreText;
+    //private AudioSource _scoreSFX;
 
     [Header("Game Over")]
-    public GameObject _gameOverScreen;
+    [SerializeField] private GameObject _gameOverScreen;
+
+
+    void Start()
+    {
+        // grab Bird script for _isBirdAlive state
+        _bird = GameObject.FindGameObjectWithTag("Bird").GetComponent<Bird>();
+        // grab "Audio Source"
+        //_scoreSFX = GetComponent<AudioSource>();
+    }
 
     public void AddScore(int scoreToAdd)
     {
-        _playerScore += scoreToAdd;
-        _scoreText.text = _playerScore.ToString();
+        if (!_bird._isBirdAlive)
+            return;
+        else
+        {
+            _playerScore += scoreToAdd;
+            _scoreText.text = _playerScore.ToString();
+            //_scoreSFX.Play();
+        }
     }
 
-    public void RestartGame()
+    public void LoadPlayAgain()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("Level");
+    }
+
+    public void LoadTitleScreen()
+    {
+        SceneManager.LoadScene("Title Screen");
     }
 
     public void GameOver()
