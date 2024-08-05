@@ -13,8 +13,8 @@ TagManager:
   - Bird
   - Water
   - UI
-  - 
-  - 
+  - Clouds
+  - Pipes
   - 
   - 
   - 
@@ -42,4 +42,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Bird
+    uniqueID: 4219241603
     locked: 0
